@@ -1,846 +1,108 @@
-/*!
- * LaTeX.css (https://latex.vercel.app/)
- *
- * Source: https://github.com/vincentdoerig/latex-css
- * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
-*/
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/LM-regular.woff2') format('woff2'),
-    url('./fonts/LM-regular.woff') format('woff'),
-    url('./fonts/LM-regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/LM-italic.woff2') format('woff2'),
-    url('./fonts/LM-italic.woff') format('woff'),
-    url('./fonts/LM-italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: normal;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/LM-bold.woff2') format('woff2'),
-    url('./fonts/LM-bold.woff') format('woff'),
-    url('./fonts/LM-bold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Latin Modern';
-  font-style: italic;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
-    url('./fonts/LM-bold-italic.woff') format('woff'),
-    url('./fonts/LM-bold-italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/Libertinus-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
-  font-weight: normal;
-  font-display: swap;
-  src: url('./fonts/Libertinus-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: normal;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/Libertinus-bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
-  font-weight: bold;
-  font-display: swap;
-  src: url('./fonts/Libertinus-bold-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('./fonts/Libertinus-semibold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Libertinus';
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url('./fonts/Libertinus-semibold-italic.woff2') format('woff2');
-}
-
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-:root {
-  --body-color: hsl(0, 5%, 10%);
-  --body-bg-color: hsl(210, 20%, 98%);
-  --link-visited: hsl(0, 100%, 33%);
-  --link-focus-outline: hsl(220, 90%, 52%);
-  --pre-bg-color: hsl(210, 28%, 93%);
-  --kbd-bg-color: hsl(210, 5%, 100%);
-  --kbd-border-color: hsl(210, 5%, 70%);
-  --table-border-color: black;
-  --border-width-thin: 1.36px;
-  --border-width-thick: 2.27px;
-  --sidenote-target-border-color: hsl(55, 55%, 70%);
-  --footnotes-border-color: hsl(0, 0%, 39%);
-  --text-indent-size: 1.463rem;
-}
-
-.latex-dark {
-  --body-color: hsl(0, 0%, 86%);
-  --body-bg-color: hsl(0, 0%, 16%);
-  --link-visited: hsl(196 80% 77%);
-  --link-focus-outline: hsl(215, 63%, 73%);
-  --pre-bg-color: hsl(0, 1%, 25%);
-  --kbd-bg-color: hsl(0, 0%, 16%);
-  --kbd-border-color: hsl(210, 5%, 70%);
-  --table-border-color: white;
-  --sidenote-target-border-color: hsl(0, 0%, 59%);
-  --footnotes-border-color: hsl(0, 0%, 59%);
-  --proof-symbol-filter: invert(80%);
-}
-
-@media (prefers-color-scheme: dark) {
-   .latex-dark-auto {
-    --body-color: hsl(0, 0%, 86%);
-    --body-bg-color: hsl(0, 0%, 16%);
-    --link-visited: hsl(196 80% 77%);
-    --link-focus-outline: hsl(215, 63%, 73%);
-    --pre-bg-color: hsl(0, 1%, 25%);
-    --kbd-bg-color: hsl(0, 0%, 16%);
-    --kbd-border-color: hsl(210, 5%, 70%);
-    --table-border-color: white;
-    --sidenote-target-border-color: hsl(0, 0%, 59%);
-    --footnotes-border-color: hsl(0, 0%, 59%);
-    --proof-symbol-filter: invert(80%);
-  }
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Make default font-size for desktop and add smooth scrolling to anchors */
+/* General Body and HTML Styling */
 html {
-  /* Default latex.css sets this to 1rem. Adjusted slightly larger for desktop. */
-  font-size: 1.125rem; /* This sets the base font size for 'rem' units */
-}
-@media (prefers-reduced-motion: no-preference) {
-  html {
     scroll-behavior: smooth;
-  }
+    font-size: 1.125rem; /* Base font size for desktop (18px) */
 }
 
-body.libertinus {
-  font-family: 'Libertinus', Georgia, Cambria, 'Times New Roman', Times, serif;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-/* --- CORE OVERRIDES FOR LATEX.CSS --- */
-/* These styles ensure your specific layout and dark theme are applied */
-html {
-    font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif; /* Removed !important */
-}
 body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #f0f0f0;
+    background-color: #0d0d0d;
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
-    line-height: 1.6;
-
-    background-color: #121212 !important; /* Keep !important for dark theme override */
-    color: #e0e0e0 !important; /* Keep !important for dark theme override */
+    padding: 0; /* Reset default padding */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    hyphens: none;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
+    width: 100%; /* Ensures body takes full width */
 }
 
-p {
-  margin-top: 1rem;
-}
-
-/* Indents paragraphs like in LaTeX documents*/
-.indent-pars p {
-  text-indent: var(--text-indent-size);
-}
-
-.indent-pars p.no-indent,
-p.no-indent {
-  text-indent: 0;
-}
-
-.indent-pars ol p,
-.indent-pars ul p {
-  text-indent: 0;
-}
-
-.indent-pars h2 + p,
-.indent-pars h3 + p,
-.indent-pars h4 + p {
-  text-indent: 0;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make links red */
-a,
-a:visited {
-  color: var(--link-visited);
-}
-
-a:focus {
-  outline-offset: 2px;
-  outline: 2px solid var(--link-focus-outline);
-}
-
-/* Allow line breaks between any two characters */
-.break-all {
-  word-break: break-all;
-}
-
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Prevent textarea from overflowing */
-textarea {
-  width: 100%;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
-
-/* Styles for inline code or code snippets */
-code,
-pre,
-kbd {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
-  font-size: 85%;
-  hyphens: none;
-}
-pre {
-  padding: 1rem 1.4rem;
-  max-width: 100%;
-  overflow: auto;
-  border-radius: 4px;
-  background: var(--pre-bg-color);
-}
-pre code {
-  font-size: 95%;
-  position: relative;
-}
-kbd {
-  background: var(--kbd-bg-color);
-  border: 1px solid var(--kbd-border-color);
-  border-radius: 2px;
-  padding: 2px 4px;
-  font-size: 75%;
-}
-
-/* Better tables */
-table:not(.borders-custom) {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: auto;
-  max-width: 100%;
-  border-top: var(--border-width-thick) solid var(--table-border-color);
-  border-bottom: var(--border-width-thick) solid var(--table-border-color);
-  overflow-x: auto;
-  counter-increment: caption;
-}
-table:not(.borders-custom) tr > th[scope='col'] {
-  border-bottom: var(--border-width-thin) solid var(--table-border-color);
-}
-table:not(.borders-custom) tr > th[scope='row'] {
-  border-right: var(--border-width-thin) solid var(--table-border-color);
-}
-table:not(.borders-custom) > tbody > tr:first-child > td,
-table:not(.borders-custom) > tbody > tr:first-child > th {
-  border-top: var(--border-width-thin) solid var(--table-border-color);
-}
-table:not(.borders-custom) > tbody > tr:last-child > td,
-table:not(.borders-custom) > tbody > tr:last-child > th {
-  border-bottom: var(--border-width-thin) solid var(--table-border-color);
-}
-
-th,
-td {
-  text-align: left;
-  padding: 0.5rem;
-  line-height: 1.1;
-}
-/* Table caption */
-caption {
-  text-align: left;
-  font-size: 0.923em;
-  padding: 0 0.25em 0.25em;
-  width: 100%;
-}
-
-caption::before {
-  content: 'Table ' counter(caption) '. ';
-  font-weight: bold;
-}
-
-/* allow scroll on the x-axis */
-.scroll-wrapper {
-  overflow-x: auto;
-}
-
-/* if a table is wrapped in a scroll wrapper,
-  the table cells shouldn't wrap */
-.scroll-wrapper > table td {
-  white-space: nowrap;
-}
-
-/* Table custom borders */
-table.borders-custom {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: auto;
-  max-width: 100%;
-  overflow-x: auto;
-  counter-increment: caption;
-}
-
-.border-top-thick {
-  border-top: var(--border-width-thick) solid var(--table-border-color);
-}
-.border-right-thick {
-  border-right: var(--border-width-thick) solid var(--table-border-color);
-}
-.border-bottom-thick {
-  border-bottom: var(--border-width-thick) solid var(--table-border-color);
-}
-.border-left-thick {
-  border-left: var(--border-width-thick) solid var(--table-border-color);
-}
-
-/* Table column alignment */
-.col-1-l tr > :nth-child(1),
-.col-2-l tr > :nth-child(2),
-.col-3-l tr > :nth-child(3),
-.col-4-l tr > :nth-child(4),
-.col-5-l tr > :nth-child(5),
-.col-6-l tr > :nth-child(6),
-.col-7-l tr > :nth-child(7),
-.col-8-l tr > :nth-child(8),
-.col-9-l tr > :nth-child(9),
-.col-10-l tr > :nth-child(10),
-.col-11-l tr > :nth-child(11),
-.col-12-l tr > :nth-child(12) {
-  text-align: left;
-}
-.col-1-c tr > :nth-child(1),
-.col-2-c tr > :nth-child(2),
-.col-3-c tr > :nth-child(3),
-.col-4-c tr > :nth-child(4),
-.col-5-c tr > :nth-child(5),
-.col-6-c tr > :nth-child(6),
-.col-7-c tr > :nth-child(7),
-.col-8-c tr > :nth-child(8),
-.col-9-c tr > :nth-child(9),
-.col-10-c tr > :nth-child(10),
-.col-11-c tr > :nth-child(11),
-.col-12-c tr > :nth-child(12) {
-  text-align: center;
-}
-.col-1-r tr > :nth-child(1),
-.col-2-r tr > :nth-child(2),
-.col-3-r tr > :nth-child(3),
-.col-4-r tr > :nth-child(4),
-.col-5-r tr > :nth-child(5),
-.col-6-r tr > :nth-child(6),
-.col-7-r tr > :nth-child(7),
-.col-8-r tr > :nth-child(8),
-.col-9-r tr > :nth-child(9),
-.col-10-r tr > :nth-child(10),
-.col-11-r tr > :nth-child(11),
-.col-12-r tr > :nth-child(12) {
-  text-align: right;
-}
-
-/* Format figure captions (based on table captions) */
-figure {
-  counter-increment: figcaption;
-}
-figcaption {
-  text-align: left;
-  font-size: 0.923em;
-  padding: 0.25em 0.25em 0;
-  width: 100%;
-  margin-left: 0;
-}
-figcaption::before {
-  content: 'Figure ' counter(figcaption) '. ';
-  font-weight: bold;
-}
-
-/* Center align the title */
-h1:first-child {
-  text-align: center;
-}
-
-/* Nested ordered list for ToC */
-nav ol {
-  counter-reset: item;
-  padding-left: 2rem;
-}
-nav ol > li {
-  display: block;
-}
-nav ol > li::before {
-  content: counters(item, '.') ' ';
-  counter-increment: item;
-  padding-right: 0.85rem;
-}
-
-/* Center definitions (most useful for display equations) */
-dl dd {
-  text-align: center;
-}
-
-/* Theorem */
-.theorem {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Lemma */
-.lemma {
-  counter-increment: theorem;
-  display: block;
-  margin: 12px 0;
-  font-style: italic;
-}
-.lemma::before {
-  content: 'Lemma ' counter(theorem) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Proof */
-.proof {
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-  position: relative;
-}
-.proof::before {
-  content: 'Proof. ' attr(title);
-  font-style: italic;
-}
-.proof::after {
-  content: '◾️';
-  filter: var(--proof-symbol-filter);
-  position: absolute;
-  right: -12px;
-  bottom: -2px;
-}
-
-/* Definition */
-.definition {
-  counter-increment: definition;
-  display: block;
-  margin: 12px 0;
-  font-style: normal;
-}
-.definition::before {
-  content: 'Definition ' counter(definition) '. ';
-  font-weight: bold;
-  font-style: normal;
-}
-
-/* Center align author name, use small caps and add vertical spacing  */
-.author {
-  margin: 0.85rem 0;
-  font-variant-caps: small-caps;
-  text-align: center;
-}
-
-/* Sidenotes */
-
-.sidenote {
-  font-size: 0.8rem;
-  float: right;
-  clear: right;
-  width: 18vw;
-  margin-right: -20vw;
-  margin-bottom: 1em;
-  text-indent: 0;
-  /* Right sidenotes explicitly aligned to left for wide screens */
-  text-align: left;
-}
-
-.sidenote.left {
-  float: left;
-  margin-left: -20vw;
-  margin-bottom: 1em;
-  text-indent: 0;
-  /* Left sidenotes explicitly aligned to right for wide screens */
-  text-align: right;
-}
-
-/* Justify all sidenotes for wide screens when `text-justify` class is used */
-body.text-justify .sidenote,
-body.text-justify .sidenote.left {
-    text-align: justify;
-}
-
-/* (WIP) add border when a sidenote is clicked on */
-.sidenote:target {
-  border: var(--sidenote-target-border-color) 1.5px solid;
-  padding: 0 .5rem;
-  scroll-margin-block-start: 10rem;
-}
-
-/* sidenote counter */
-.sidenote-number {
-  counter-increment: sidenote-counter;
-}
-
-.sidenote-number::after,
-.sidenote::before {
-  position: relative;
-  vertical-align: baseline;
-}
-
-/* add number in main content */
-.sidenote-number::after {
-  content: counter(sidenote-counter);
-  font-size: 0.7rem;
-  top: -0.5rem;
-  left: 0.1rem;
-}
-
-/* add number in front of the sidenote */
-.sidenote-number ~ .sidenote::before {
-  content: counter(sidenote-counter) ' ';
-  font-size: 0.7rem;
-  top: -0.5rem;
-}
-
-label.sidenote-toggle:not(.sidenote-number) {
-  display: none;
-}
-
-/* sidenotes inside blockquotes are indented more */
-blockquote .sidenote {
-  margin-right: -24vw;
-  width: 18vw;
-}
-
-
-label.sidenote-toggle {
-  display: inline;
-  cursor: pointer;
-}
-
-input.sidenote-toggle {
-  display: none;
-}
-
-@media (max-width: 1050px) {
-  label.sidenote-toggle:not(.sidenote-number) {
-    display: inline;
-  }
-  .sidenote {
-    display: none;
-  }
-  .sidenote-toggle:checked + .sidenote {
-    display: block;
-    margin: 0.5rem 1.25rem 1rem 0.5rem;
-    float: left;
-    left: 1rem;
-    clear: both;
-    width: 95%;
-  }
-
-  /* All sidenotes explicitly aligned to left for narrow screens */
-  .sidenote-toggle:checked + .sidenote.left {
-    text-align: left;
-  }
-
-  /* Justify all sidenotes for narrow screens when `text-justify` class is used */
-  body.text-justify .sidenote-toggle:checked + .sidenote.left {
-    text-align: justify;
-  }
-
-  /* tweak indentation of sidenote inside a blockquote */
-  blockquote .sidenote {
-    margin-right: -25vw;
-    width: 16vw;
-  }
-}
-
-/* Make footnote text smaller */
-.footnotes p {
-  line-height: 1.5;
-  font-size: 85%;
-  margin-bottom: 0.4rem;
-}
-.footnotes {
-  border-top: 1px solid var(--footnotes-border-color);
-}
-
-/* Center title and paragraph */
-.abstract,
-.abstract p {
-  text-align: center;
-  margin-top: 0;
-}
-.abstract {
-  margin: 2.25rem 0;
-}
-.abstract > h2 {
-  font-size: 1rem;
-  margin-bottom: -0.2rem;
-}
-
-/* Format the LaTeX symbol correctly (a higher up, e lower) */
-.latex span:nth-child(1) {
-  text-transform: uppercase;
-  font-size: 0.75em;
-  vertical-align: 0.28em;
-  margin-left: -0.48em;
-  margin-right: -0.15em;
-  line-height: 1ex;
-}
-
-.latex span:nth-child(2) {
-  text-transform: uppercase;
-  vertical-align: -0.5ex;
-  margin-left: -0.1667em;
-  margin-right: -0.125em;
-  line-height: 1ex;
-}
-
-/* Prevent line breaks inside an element */
-.whitespace-nowrap {
-  white-space: nowrap;
-}
-
-/* Heading typography */
-h1 {
-  font-size: 2.5rem;
-  line-height: 3.25rem;
-  margin-bottom: 1.625rem;
-}
-
-h2 {
-  font-size: 1.7rem;
-  line-height: 2rem;
-  margin-top: 3rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-top: 2.5rem;
-}
-
-h4 {
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-h5 {
-  font-size: 1rem;
-  margin-top: 1.8rem;
-}
-
-h6 {
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: normal;
-  margin-top: 2.5rem;
-}
-p {
-  font-size: 1.4rem;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.625rem;
-}
-
-h1 + h2 {
-  margin-top: 1.625rem;
-}
-
-h2 + h3,
-h3 + h4,
-h4 + h5 {
-  margin-top: 0.8rem;
-}
-
-h5 + h6 {
-  margin-top: -0.8rem;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 0.8rem;
-}
-
-
----
-
-### Your Custom Styles (Revised)
-
-```css
-/* --- YOUR CUSTOM STYLES (REVISED FOR DESKTOP COMPATIBILITY) --- */
-
+/* Header Styling */
 header {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     text-align: center;
-    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em; /* relative to parent font size */
-    letter-spacing: 2px;
+    color: #00bcd4;
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,188,212,0.5);
 }
 
+/* Navigation Styling */
 nav {
-    background-color: #272727;
+    background-color: #2a2a2a;
     padding: 0.8rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     text-align: center;
-    width: 100%;
+    position: sticky;
+    top: 60px; /* Adjust if header height changes */
+    z-index: 999;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 0 1.5rem;
+nav li {
+    margin: 0 1rem;
 }
 
-nav ul li a {
-    color: #ffffff;
+nav a {
+    color: #e0e0e0;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1em;
+    font-weight: bold;
     padding: 0.5rem 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
+nav a:hover,
+nav a.active {
+    color: #ffffff;
     background-color: #00bcd4;
-    color: #000000;
+    box-shadow: 0 0 8px rgba(0,188,212,0.6);
 }
 
-/* Main Content Area - Stretches almost full screen on desktop */
+/* Main Content Area */
 main {
-    flex-grow: 1;
+    flex-grow: 1; /* Allows main to take up available vertical space */
     padding: 20px; /* Internal padding for content inside the box */
-    width: 96vw; /* Makes the box 96% of the viewport width */
-    max-width: 1920px; /* Optional: Prevents it from becoming absurdly wide on ultra-wide monitors */
-    margin: 20px auto; /* Centers the box horizontally with 20px top/bottom margin */
+    width: 100%; /* Takes 100% of the available width within body's padding */
+    margin: 20px auto; /* Centers the main block vertically */
     background-color: #1e1e1e;
-    border-radius: 8px; /* Keeps your existing rounded corners */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Keeps your existing shadow */
-    box-sizing: border-box;
-    min-width: 320px; /* Ensures it doesn't get too small on narrow screens */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* Ensures padding is included in the width/height */
+    min-width: 320px; /* Prevents content from becoming too narrow */
 }
 
-/* Tab Content Styling - Removed padding here, as it's now on main */
+/* Tab Content Styling */
 .tab-content {
-    display: none;
-    /* Removed padding: 2rem 3%; as main has padding now */
+    display: none; /* Hidden by default */
+    padding: 20px 0;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .tab-content.active {
-    display: block;
+    display: block; /* Show active tab */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* PDF Viewer Styling */
@@ -848,38 +110,32 @@ main {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    aspect-ratio: 1 / 1.414; /* This applies by default, especially for mobile */
+    aspect-ratio: 1 / 1.414; /* Default for mobile and smaller screens */
     position: relative;
     background-color: #333;
+    border-radius: 5px; /* Added for consistency with iframe */
+    overflow: hidden; /* Ensures content respects border-radius */
 }
 
-/* --- */
-
-/* New: Override aspect-ratio for desktop to allow for more height and space */
-@media (min-width: 720px) { /* Applies to desktop screens (1025px and wider) */
-    .pdf-container {
-        aspect-ratio: unset; /* Remove the aspect ratio constraint for desktop */
-        height: 80vh; /* Set its height to 80% of the viewport height for desktop */
-        /* You could also try a fixed height like height: 900px; if 80vh is too much/little */
-    }
-}
-
-/* Ensure the iframe itself always fills its container */
 .pdf-viewer {
     width: 100%;
-    height: 100%; /* Critical: Makes the iframe fill the container's new height */
+    height: 100%; /* Important: This makes the iframe fill its container */
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: block;
 }
 
-/* About Author Section Styling */
+/* About the Author Section */
 .about-author {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 2rem;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 2rem; /* Space between items */
+    padding: 20px; /* Add some internal padding */
+    background-color: #252525;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
 }
 
 .about-author img {
@@ -887,84 +143,238 @@ main {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers its area without distortion */
 }
 
 .about-author-text {
-    flex: 1;
-    min-width: 300px;
+    flex: 1; /* Allows text to grow and shrink */
+    min-width: 300px; /* Ensures text block doesn't get too small before wrapping */
 }
 
-.about-author-text h2 {
+.about-author h2 {
     color: #00bcd4;
-    font-size: 2em;
+    font-size: 2rem;
     margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-footer {
-    background-color: #1e1e1e;
-    color: #ffffff;
+.about-author p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Table of Contents Styling */
+.toc-container {
+    padding: 20px;
+    background-color: #252525;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+.toc-container h2 {
+    color: #00bcd4;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-    width: 100%;
 }
 
-/* Responsive Adjustments - Font size changes for smaller screens */
+.toc-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-container li {
+    margin-bottom: 0.8rem;
+}
+
+.toc-container a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toc-container a:hover {
+    background-color: #00bcd4;
+    color: #ffffff;
+}
+
+/* Section Content Styling (for sections like Abstract, Introduction, etc.) */
+.section-content {
+    padding: 20px;
+    background-color: #252525;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.section-content h2 {
+    color: #00bcd4;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.section-content h3 {
+    color: #00bcd4;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.section-content ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 1rem;
+}
+
+.section-content ol {
+    list-style: decimal;
+    padding-left: 25px;
+    margin-bottom: 1rem;
+}
+
+.section-content li {
+    margin-bottom: 0.5rem;
+}
+
+.section-content a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.section-content a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #1a1a1a;
+    color: #b0b0b0;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    margin-top: 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* --- */
+
+/* Responsive Design */
+
+/* Desktop (1025px and wider) */
+@media (min-width: 1025px) {
+    /* Body padding for desktop margins */
+    body {
+        padding: 0 2rem; /* Adjust this value for more or less space from screen edges */
+    }
+
+    /* PDF Container - Remove aspect ratio for desktop for more height */
+    .pdf-container {
+        aspect-ratio: unset;
+        height: 80vh; /* Set a height relative to viewport height for desktop */
+    }
+}
+
+/* Tablet (up to 1024px) */
 @media (max-width: 1024px) {
     html {
-        font-size: 1rem; /* Adjust for tablets */
+        font-size: 1rem; /* Adjust base font size for tablets (16px) */
+    }
+    header h1 {
+        font-size: 2.2rem;
+    }
+    nav {
+        top: 50px; /* Adjust sticky nav position for smaller header */
+    }
+    nav a {
+        padding: 0.4rem 0.8rem;
     }
     main {
         max-width: 90vw; /* Allow main to be slightly more flexible on tablets */
         padding: 15px; /* Slightly less padding on tablets */
     }
+    .about-author img {
+        max-width: 200px;
+    }
+    .about-author-text {
+        min-width: 250px;
+    }
 }
 
+/* Mobile (up to 768px) */
 @media (max-width: 768px) {
     html {
-        font-size: 0.9rem; /* Further reduce base font size for phones */
+        font-size: 0.9rem; /* Further reduce base font size for phones (14.4px) */
     }
-    main {
-        max-width: 100vw;
-        margin: 1rem 0;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 10px; /* Smaller padding on phones */
+    header {
+        padding: 0.8rem 1rem;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav {
+        top: 40px; /* Adjust sticky nav position */
+        padding: 0.6rem 0;
     }
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 0.5rem;
     }
-    nav ul li {
-        margin: 0.5rem 0;
+    nav li {
+        margin: 0;
+    }
+    main {
+        max-width: 100vw; /* Take full viewport width on mobile */
+        margin: 1rem 0; /* Less margin on top/bottom, no side margin */
+        border-radius: 0; /* Remove border-radius for full-width look */
+        box-shadow: none; /* Remove shadow for full-width look */
+        padding: 10px; /* Smaller padding on phones */
     }
     .about-author {
-        flex-direction: column;
+        flex-direction: column; /* Stack author image and text vertically */
         align-items: center;
         text-align: center;
     }
     .about-author img {
-        max-width: 70%;
+        max-width: 150px;
+        margin-bottom: 1rem;
     }
-    header h1 {
-        font-size: 2em;
-    }
-    nav ul li a {
-        font-size: 1em;
-    }
-    .about-author-text h2 {
-        font-size: 1.8em;
+    .about-author-text {
+        min-width: unset; /* Remove min-width to allow full flexibility */
+        width: 100%;
     }
 }
 
-/* Very small screens */
+/* Small Mobile (up to 480px) */
 @media (max-width: 480px) {
     html {
-        font-size: 0.85rem; /* Even smaller base font size for very small phones */
+        font-size: 0.85rem; /* Even smaller base font size (13.6px) */
     }
     header h1 {
-        font-size: 1.6em;
+        font-size: 1.5rem;
+    }
+    nav a {
+        font-size: 0.9rem;
+    }
+    main {
+        padding: 8px; /* Even smaller padding for very small screens */
+    }
+    .pdf-container {
+        aspect-ratio: 1 / 1.414; /* Ensure aspect ratio is consistent */
+        height: auto; /* Let aspect ratio determine height */
     }
 }
