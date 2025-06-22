@@ -819,11 +819,11 @@ nav ul li a.active {
     color: #000000;
 }
 
-/* Main Content Area - Reverted max-width and padding to restore desktop layout */
+/* Main Content Area - Increased max-width for wider desktop content */
 main {
     flex-grow: 1;
-    padding: 20px; /* Reverted to 20px padding on main */
-    max-width: 900px; /* Reverted to fixed max-width for desktop */
+    padding: 20px;
+    max-width: 1200px; /* Increased from 900px for wider desktop content */
     margin: 20px auto; /* Centers the main content block */
     background-color: #1e1e1e;
     border-radius: 8px;
