@@ -862,7 +862,7 @@ main {
         height: 900px; /* Set its height to a fixed value for desktop */
         
         /* ADD THIS LINE: Limit the maximum width of the PDF container on desktop */
-        max-width: 900px; /* Or a value that looks good, e.g., 800px, 1000px */
+        max-width: 680px; /* Or a value that looks good, e.g., 800px, 1000px */
     }
 }
 
