@@ -845,7 +845,7 @@ main {
 /* PDF Viewer Styling */
 .pdf-container {
     width: 100%;
-    max-width: 800px; /* Keep max-width for PDF */
+    max-width: 100%; /* Changed from 800px to 100% to make it larger on desktop */
     margin: 0 auto;
     aspect-ratio: 1 / 1.414;
     position: relative;
