@@ -856,11 +856,13 @@ main {
 /* --- */
 
 /* New: Override aspect-ratio for desktop to allow for more height and space */
-@media (min-width: 720px) { /* Applies to desktop screens (1025px and wider) */
+@media (min-width: 720px) { /* Applies to desktop screens */
     .pdf-container {
         aspect-ratio: unset; /* Remove the aspect ratio constraint for desktop */
-        height: 900px; /* Set its height to 80% of the viewport height for desktop */
-        /* You could also try a fixed height like height: 900px; if 80vh is too much/little */
+        height: 900px; /* Set its height to a fixed value for desktop */
+        
+        /* ADD THIS LINE: Limit the maximum width of the PDF container on desktop */
+        max-width: 900px; /* Or a value that looks good, e.g., 800px, 1000px */
     }
 }
 
