@@ -819,17 +819,18 @@ nav ul li a.active {
     color: #000000;
 }
 
-/* Main Content Area - Increased max-width for wider desktop content */
+/* Main Content Area - Stretches almost full screen on desktop */
 main {
     flex-grow: 1;
-    padding: 20px;
-    max-width: 1200px; /* Increased from 900px for wider desktop content */
-    margin: 20px auto; /* Centers the main content block */
+    padding: 20px; /* Internal padding for content inside the box */
+    width: 96vw; /* Makes the box 96% of the viewport width */
+    max-width: 1920px; /* Optional: Prevents it from becoming absurdly wide on ultra-wide monitors */
+    margin: 20px auto; /* Centers the box horizontally with 20px top/bottom margin */
     background-color: #1e1e1e;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 8px; /* Keeps your existing rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Keeps your existing shadow */
     box-sizing: border-box;
-    min-width: 320px;
+    min-width: 320px; /* Ensures it doesn't get too small on narrow screens */
 }
 
 /* Tab Content Styling - Removed padding here, as it's now on main */
