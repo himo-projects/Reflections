@@ -856,7 +856,7 @@ main {
 /* --- */
 
 /* New: Override aspect-ratio for desktop to allow for more height and space */
-@media (min-width: 1025px) { /* Applies to desktop screens (1025px and wider) */
+@media (min-width: 720px) { /* Applies to desktop screens (1025px and wider) */
     .pdf-container {
         aspect-ratio: unset; /* Remove the aspect ratio constraint for desktop */
         height: 80vh; /* Set its height to 80% of the viewport height for desktop */
