@@ -846,16 +846,28 @@ main {
 /* PDF Viewer Styling */
 .pdf-container {
     width: 100%;
-    max-width: 100%; /* Changed from 800px to 100% to make it larger on desktop */
+    max-width: 100%;
     margin: 0 auto;
-    aspect-ratio: 1 / 1.414;
+    aspect-ratio: 1 / 1.414; /* This applies by default, especially for mobile */
     position: relative;
     background-color: #333;
 }
 
+/* --- */
+
+/* New: Override aspect-ratio for desktop to allow for more height and space */
+@media (min-width: 1025px) { /* Applies to desktop screens (1025px and wider) */
+    .pdf-container {
+        aspect-ratio: unset; /* Remove the aspect ratio constraint for desktop */
+        height: 80vh; /* Set its height to 80% of the viewport height for desktop */
+        /* You could also try a fixed height like height: 900px; if 80vh is too much/little */
+    }
+}
+
+/* Ensure the iframe itself always fills its container */
 .pdf-viewer {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Critical: Makes the iframe fill the container's new height */
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
