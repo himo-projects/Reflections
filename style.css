@@ -866,7 +866,7 @@ main {
 
 /* Ensure the iframe itself always fills its container */
 .pdf-viewer {
-    width: 100%;
+    width: 80%;
     height: 100%; /* Critical: Makes the iframe fill the container's new height */
     border: none;
     border-radius: 5px;
